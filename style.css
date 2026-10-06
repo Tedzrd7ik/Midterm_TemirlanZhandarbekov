@@ -1,0 +1,154 @@
+/* Custom Design System */
+:root {
+  --bg-primary: #0b0f19;
+  --bg-card: rgba(22, 31, 48, 0.7);
+  --accent-cyan: #00f2fe;
+  --accent-purple: #4facfe;
+  --text-main: #f8f9fa;
+  --text-muted: #a0aec0;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  margin: 0;
+  padding-top: 76px; /* Offset for fixed navbar */
+}
+
+/* Glassmorphism Navbar */
+.navbar-custom {
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-link {
+  color: var(--text-muted) !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent-cyan) !important;
+}
+
+/* Hero Section with Animations */
+.hero-section {
+  padding: 100px 0 60px;
+  text-align: center;
+  background: radial-gradient(
+    circle at center,
+    rgba(79, 172, 254, 0.15) 0%,
+    transparent 70%
+  );
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cards using Custom Flexbox & Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.custom-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-cyan);
+}
+
+/* Pricing Table Styling */
+.table-custom {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.table-custom th {
+  background: rgba(0, 242, 254, 0.1);
+  color: var(--accent-cyan);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem;
+}
+
+.table-custom td {
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 1rem;
+}
+
+/* Forms */
+.custom-form .form-control,
+.custom-form .form-select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  border-radius: 8px;
+}
+
+.custom-form .form-control:focus,
+.custom-form .form-select:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+  color: var(--text-main);
+}
+
+/* Buttons */
+.btn-glow {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  transition:
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn-glow:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+}
+
+/* Responsive Media Queries (375px, 768px, 1280px) */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  .btn-glow {
+    width: 100%;
+  }
+}
+/* Fix Bootstrap dark text-muted override */
+.text-muted {
+  color: #a0aec0 !important; /* Brighter gray for dark mode */
+}
